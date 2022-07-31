@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let arr = [
+      "name",
+      "张三",
+      "age",
+      20,
+      "adress",
+      "郑州市中原区",
+      "name",
+      "李四",
+      "age",
+      21,
+      "adress",
+      "郑州市中原区222",
+      "name",
+      "王五",
+      "age",
+      22,
+      "adress",
+      "郑州市中原区333",
+      "name",
+      "赵六",
+      "age",
+      23,
+      "adress",
+      "郑州市中原区444",
+    ];
+
+    let newArr = [];
+
+    let obj = {};
+    let num = 0;
+    for (i = 0; i < arr.length; i++) {
+      if (i % 2 == 0) {
+        let key = arr[i];
+        let index = i + 1;
+        let value = arr[index];
+        obj[key] = value;
+        num++;
+      }
+
+      if (Object.keys(obj).length == 3) {
+        console.log(111);
+        newArr.push(obj);
+        obj = {};
+      }
+    }
+    console.log(newArr);
+
+    var fullname = "JOhn";
+    var obj1 = {
+      fullname: "coon",
+      prop: {
+        fullname: "A",
+        getFullname: function () {
+          return this.fullname;
+        },
+      },
+    };
+    console.log(obj1.prop.getFullname());
+
+    var test = obj1.prop.getFullname;
+    console.log(test());
+
+    new Promise((resovle) => {
+      resovle(
+        (() => {
+          console.log(1);
+          return 2;
+        })()
+      );
+      console.log(3);
+    }).then((arg) => {
+      console.log(arg);
+    });
+
+    setTimeout(() => {
+      console.log(4);
+    }, 0);
+    console.log(5);
+  </script>
+</html>
